@@ -127,7 +127,7 @@ function FilterContent({
               className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-green-500 outline-none"
             >
               <option value="">Begge</option>
-              <option value="right">Hoyrehendt</option>
+              <option value="right">Høyrehendt</option>
               <option value="left">Venstrehendt</option>
             </select>
           </div>

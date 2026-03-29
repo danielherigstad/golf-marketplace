@@ -11,7 +11,7 @@ export default function ListingGrid({ listings }: ListingGridProps) {
       <div className="text-center py-16">
         <p className="text-gray-500 text-lg">Ingen annonser funnet</p>
         <p className="text-gray-400 mt-1">
-          Prov a endre filtrene dine eller sok etter noe annet.
+          Prøv å endre filtrene dine eller søk etter noe annet.
         </p>
       </div>
     );

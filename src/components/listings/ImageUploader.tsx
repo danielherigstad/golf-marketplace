@@ -111,7 +111,7 @@ export default function ImageUploader({
         )}
       </div>
       <p className="text-xs text-gray-500 mt-2">
-        Maks 8 bilder. Forste bilde blir hovedbilde. (JPG, PNG, WebP)
+        Maks 8 bilder. Første bilde blir hovedbilde. (JPG, PNG, WebP)
       </p>
     </div>
   );

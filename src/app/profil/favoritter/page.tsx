@@ -34,9 +34,9 @@ export default async function FavoritesPage() {
       {listings.length === 0 ? (
         <div className="text-center py-16">
           <Heart className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-          <p className="text-gray-500">Ingen favoritter enna</p>
+          <p className="text-gray-500">Ingen favoritter ennå</p>
           <p className="text-gray-400 text-sm mt-1">
-            Trykk pa hjertet pa en annonse for a lagre den her
+            Trykk på hjertet på en annonse for å lagre den her
           </p>
         </div>
       ) : (

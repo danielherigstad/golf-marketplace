@@ -247,7 +247,7 @@ export default function ListingForm() {
       {showHand && (
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Hoyrehendt / venstrehendt
+            Høyrehendt / venstrehendt
           </label>
           <select
             value={hand}
@@ -255,7 +255,7 @@ export default function ListingForm() {
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none bg-white"
           >
             <option value="">Ikke spesifisert</option>
-            <option value="right">Hoyrehendt</option>
+            <option value="right">Høyrehendt</option>
             <option value="left">Venstrehendt</option>
           </select>
         </div>

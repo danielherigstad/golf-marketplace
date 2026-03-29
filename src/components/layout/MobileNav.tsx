@@ -6,7 +6,7 @@ import { Home, Search, PlusCircle, MessageCircle, User } from "lucide-react";
 
 const navItems = [
   { href: "/", label: "Hjem", icon: Home },
-  { href: "/annonser", label: "Sok", icon: Search },
+  { href: "/annonser", label: "Søk", icon: Search },
   { href: "/annonser/ny", label: "Legg ut", icon: PlusCircle },
   { href: "/meldinger", label: "Meldinger", icon: MessageCircle },
   { href: "/profil", label: "Profil", icon: User },

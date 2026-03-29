@@ -35,9 +35,9 @@ export default async function MessagesPage() {
       {!conversations || conversations.length === 0 ? (
         <div className="text-center py-16">
           <MessageCircle className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-          <p className="text-gray-500">Ingen meldinger enna</p>
+          <p className="text-gray-500">Ingen meldinger ennå</p>
           <p className="text-gray-400 text-sm mt-1">
-            Kontakt en selger for a starte en samtale
+            Kontakt en selger for å starte en samtale
           </p>
         </div>
       ) : (

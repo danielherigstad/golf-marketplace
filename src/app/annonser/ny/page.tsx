@@ -11,7 +11,7 @@ export default function NewListingPage() {
         Legg ut annonse
       </h1>
       <p className="text-gray-600 mb-8">
-        Fyll inn detaljene under for a legge ut golfutstyret ditt. Det er helt
+        Fyll inn detaljene under for å legge ut golfutstyret ditt. Det er helt
         gratis!
       </p>
       <ListingForm />

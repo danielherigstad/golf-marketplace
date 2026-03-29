@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold text-white mb-4">GolfMarked</h3>
             <p className="text-sm">
-              Norges markedsplass for brukt golfutstyr. Kjop og selg enkelt —
+              Norges markedsplass for brukt golfutstyr. Kjøp og selg enkelt —
               helt gratis.
             </p>
           </div>

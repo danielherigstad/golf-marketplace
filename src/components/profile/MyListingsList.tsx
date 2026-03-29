@@ -24,7 +24,7 @@ export default function MyListingsList({ listings }: MyListingsListProps) {
   }
 
   async function deleteListing(id: string) {
-    if (!confirm("Er du sikker pa at du vil slette denne annonsen?")) return;
+    if (!confirm("Er du sikker på at du vil slette denne annonsen?")) return;
     await supabase.from("listings").delete().eq("id", id);
     setOpenMenu(null);
     router.refresh();
@@ -33,12 +33,12 @@ export default function MyListingsList({ listings }: MyListingsListProps) {
   if (listings.length === 0) {
     return (
       <div className="text-center py-16">
-        <p className="text-gray-500">Du har ingen annonser enna</p>
+        <p className="text-gray-500">Du har ingen annonser ennå</p>
         <Link
           href="/annonser/ny"
           className="text-green-600 font-semibold hover:underline mt-2 inline-block"
         >
-          Opprett din forste annonse
+          Opprett din første annonse
         </Link>
       </div>
     );

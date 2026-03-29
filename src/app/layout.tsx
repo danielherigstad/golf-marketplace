@@ -6,11 +6,11 @@ import MobileNav from "@/components/layout/MobileNav";
 
 export const metadata: Metadata = {
   title: {
-    default: "GolfMarked — Kjop og selg brukt golfutstyr",
+    default: "GolfMarked — Kjøp og selg brukt golfutstyr",
     template: "%s | GolfMarked",
   },
   description:
-    "Norges markedsplass for brukt golfutstyr. Finn drivere, jern, puttere, bagger og mer. Gratis a legge ut annonser.",
+    "Norges markedsplass for brukt golfutstyr. Finn drivere, jern, puttere, bagger og mer. Gratis å legge ut annonser.",
 };
 
 export default function RootLayout({

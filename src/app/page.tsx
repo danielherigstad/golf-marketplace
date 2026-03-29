@@ -25,11 +25,11 @@ const categories = [
   { name: "Puttere", slug: "puttere", icon: Navigation },
   { name: "Bagger", slug: "bagger", icon: Briefcase },
   { name: "Baller", slug: "baller", icon: Circle },
-  { name: "Klaer", slug: "klaer", icon: Shirt },
+  { name: "Klær", slug: "klaer", icon: Shirt },
   { name: "Sko", slug: "sko", icon: Footprints },
-  { name: "GPS & Malere", slug: "gps-avstandsmalere", icon: Navigation },
+  { name: "GPS & Målere", slug: "gps-avstandsmalere", icon: Navigation },
   { name: "Treningsutstyr", slug: "treningsutstyr", icon: Dumbbell },
-  { name: "Tilbehor", slug: "tilbehor", icon: Puzzle },
+  { name: "Tilbehør", slug: "tilbehor", icon: Puzzle },
   { name: "Komplettsett", slug: "komplettsett", icon: Package },
 ];
 
@@ -40,10 +40,10 @@ export default function HomePage() {
       <section className="bg-green-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Kjop og selg brukt golfutstyr
+            Kjøp og selg brukt golfutstyr
           </h1>
           <p className="text-lg md:text-xl text-green-100 mb-8 max-w-2xl mx-auto">
-            Norges storste markedsplass for golfutstyr. Finn akkurat det du
+            Norges beste markedsplass for golfutstyr. Finn akkurat det du
             leter etter — med filtre for merke, modell, flex og mer.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -95,7 +95,7 @@ export default function HomePage() {
               </div>
               <h3 className="font-semibold text-lg mb-2">Opprett konto</h3>
               <p className="text-gray-600">
-                Registrer deg gratis pa sekunder med e-post eller Google.
+                Registrer deg gratis på sekunder med e-post eller Google.
               </p>
             </div>
             <div className="text-center">
@@ -114,7 +114,7 @@ export default function HomePage() {
               </div>
               <h3 className="font-semibold text-lg mb-2">Handle trygt</h3>
               <p className="text-gray-600">
-                Chat med kjoper eller selger direkte i appen og avtal
+                Chat med kjøper eller selger direkte i appen og avtal
                 overlevering.
               </p>
             </div>
@@ -129,7 +129,7 @@ export default function HomePage() {
             Har du golfutstyr du ikke bruker?
           </h2>
           <p className="text-gray-600 mb-6 max-w-xl mx-auto">
-            Legg det ut pa GolfMarked helt gratis. Na tusenvis av golfere over
+            Legg det ut på GolfMarked helt gratis. Nå tusenvis av golfere over
             hele Norge.
           </p>
           <Link
