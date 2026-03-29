@@ -7,11 +7,11 @@ export const CATEGORIES = [
   { id: 6, name: "Puttere", slug: "puttere" },
   { id: 7, name: "Bagger", slug: "bagger" },
   { id: 8, name: "Baller", slug: "baller" },
-  { id: 9, name: "Klaer", slug: "klaer" },
+  { id: 9, name: "Klær", slug: "klaer" },
   { id: 10, name: "Sko", slug: "sko" },
-  { id: 11, name: "GPS & Avstandsmalere", slug: "gps-avstandsmalere" },
+  { id: 11, name: "GPS & Avstandsmålere", slug: "gps-avstandsmalere" },
   { id: 12, name: "Treningsutstyr", slug: "treningsutstyr" },
-  { id: 13, name: "Tilbehor", slug: "tilbehor" },
+  { id: 13, name: "Tilbehør", slug: "tilbehor" },
   { id: 14, name: "Komplettsett", slug: "komplettsett" },
 ] as const;
 
