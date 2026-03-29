@@ -47,9 +47,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 gap-4">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <span className="text-2xl font-bold text-green-600">
-              GolfMarked
-            </span>
+            <img
+              src="/logo.svg"
+              alt="GolfMarked"
+              className="h-9 w-auto"
+            />
           </Link>
 
           {/* Search - hidden on mobile */}

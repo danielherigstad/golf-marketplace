@@ -4,6 +4,7 @@ import { formatPrice, formatDate, conditionLabel, handLabel } from "@/lib/utils/
 import { MapPin, User, Clock, Tag, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import ContactSellerButton from "@/components/listings/ContactSellerButton";
+import FavoriteButton from "@/components/listings/FavoriteButton";
 import ImageGallery from "@/components/listings/ImageGallery";
 import type { Listing, Category } from "@/lib/types";
 
@@ -77,13 +78,16 @@ export default async function ListingDetailPage({
             </span>
           )}
 
-          <div>
-            <p className="text-3xl font-bold text-green-700">
-              {formatPrice(typedListing.price)}
-            </p>
-            <h1 className="text-2xl font-bold text-gray-900 mt-2">
-              {typedListing.title}
-            </h1>
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-3xl font-bold text-green-700">
+                {formatPrice(typedListing.price)}
+              </p>
+              <h1 className="text-2xl font-bold text-gray-900 mt-2">
+                {typedListing.title}
+              </h1>
+            </div>
+            <FavoriteButton listingId={typedListing.id} />
           </div>
 
           {/* Key attributes */}

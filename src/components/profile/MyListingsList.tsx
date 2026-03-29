@@ -122,6 +122,14 @@ export default function MyListingsList({ listings }: MyListingsListProps) {
                   <Eye className="h-4 w-4" />
                   Se annonse
                 </Link>
+                <Link
+                  href={`/annonser/${listing.id}/rediger`}
+                  className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  onClick={() => setOpenMenu(null)}
+                >
+                  <Pencil className="h-4 w-4" />
+                  Rediger
+                </Link>
                 {listing.status === "active" && (
                   <>
                     <button

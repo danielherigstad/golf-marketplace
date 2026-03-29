@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 48" fill="none">
+  <!-- Golf ball icon -->
+  <circle cx="24" cy="24" r="20" fill="#16a34a"/>
+  <circle cx="24" cy="24" r="16" fill="white"/>
+  <!-- Dimple pattern on ball -->
+  <circle cx="18" cy="18" r="2" fill="#e5e7eb"/>
+  <circle cx="26" cy="16" r="2" fill="#e5e7eb"/>
+  <circle cx="20" cy="26" r="2" fill="#e5e7eb"/>
+  <circle cx="30" cy="24" r="2" fill="#e5e7eb"/>
+  <circle cx="24" cy="32" r="1.5" fill="#e5e7eb"/>
+  <circle cx="14" cy="24" r="1.5" fill="#e5e7eb"/>
+  <!-- Flag pin on ball -->
+  <line x1="30" y1="8" x2="30" y2="22" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+  <path d="M31 8 L42 12 L31 16 Z" fill="#16a34a"/>
+  <!-- Text: Golf -->
+  <text x="54" y="35" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="800" fill="#111827">Golf</text>
+  <!-- Text: Marked -->
+  <text x="126" y="35" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="800" fill="#16a34a">Marked</text>
+</svg>

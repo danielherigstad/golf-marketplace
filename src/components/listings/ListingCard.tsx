@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { formatPrice, formatDate, conditionLabel } from "@/lib/utils/format";
+import FavoriteButton from "./FavoriteButton";
 import type { Listing } from "@/lib/types";
 
 interface ListingCardProps {
@@ -28,6 +29,10 @@ export default function ListingCard({ listing }: ListingCardProps) {
             <span className="text-sm">Ingen bilde</span>
           </div>
         )}
+        {/* Favorite button */}
+        <div className="absolute top-2 right-2 z-10">
+          <FavoriteButton listingId={listing.id} size="sm" />
+        </div>
         {listing.status === "sold" && (
           <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
             <span className="bg-red-600 text-white px-3 py-1 rounded-full font-semibold text-sm">

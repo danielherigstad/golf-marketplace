@@ -8,23 +8,31 @@ import { CONDITIONS } from "@/lib/constants/conditions";
 import { CLUB_CATEGORY_SLUGS } from "@/lib/constants/categories";
 import ImageUploader from "./ImageUploader";
 import { Loader2 } from "lucide-react";
-import type { Category, AttributeField } from "@/lib/types";
+import type { Category, AttributeField, Listing } from "@/lib/types";
 
-export default function ListingForm() {
+interface ListingFormProps {
+  existingListing?: Listing;
+}
+
+export default function ListingForm({ existingListing }: ListingFormProps) {
+  const isEditing = !!existingListing;
+
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [condition, setCondition] = useState("");
-  const [hand, setHand] = useState<string>("");
-  const [location, setLocation] = useState("");
-  const [attributes, setAttributes] = useState<Record<string, string | number>>({});
-  const [images, setImages] = useState<string[]>([]);
+  const [title, setTitle] = useState(existingListing?.title || "");
+  const [description, setDescription] = useState(existingListing?.description || "");
+  const [price, setPrice] = useState(existingListing?.price?.toString() || "");
+  const [condition, setCondition] = useState(existingListing?.condition || "");
+  const [hand, setHand] = useState<string>(existingListing?.hand || "");
+  const [location, setLocation] = useState(existingListing?.location || "");
+  const [attributes, setAttributes] = useState<Record<string, string | number>>(
+    existingListing?.attributes || {}
+  );
+  const [images, setImages] = useState<string[]>(existingListing?.images || []);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [userId, setUserId] = useState("");
-  const [listingId] = useState(() => crypto.randomUUID());
+  const [listingId] = useState(() => existingListing?.id || crypto.randomUUID());
 
   const router = useRouter();
   const supabase = createClient();
@@ -43,9 +51,16 @@ export default function ListingForm() {
       .select("*")
       .order("sort_order")
       .then(({ data }) => {
-        if (data) setCategories(data as Category[]);
+        if (data) {
+          const cats = data as Category[];
+          setCategories(cats);
+          if (existingListing) {
+            const cat = cats.find((c) => c.id === existingListing.category_id);
+            if (cat) setSelectedCategory(cat);
+          }
+        }
       });
-  }, [supabase, router]);
+  }, [supabase, router, existingListing]);
 
   function handleAttributeChange(key: string, value: string | number) {
     setAttributes((prev) => ({ ...prev, [key]: value }));
@@ -54,7 +69,7 @@ export default function ListingForm() {
   function handleCategoryChange(categoryId: string) {
     const cat = categories.find((c) => c.id === Number(categoryId));
     setSelectedCategory(cat || null);
-    setAttributes({});
+    if (!isEditing) setAttributes({});
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -64,12 +79,10 @@ export default function ListingForm() {
     setLoading(true);
     setError("");
 
-    const brand = attributes.brand as string || null;
-    const model = attributes.model as string || null;
+    const brand = (attributes.brand as string) || null;
+    const model = (attributes.model as string) || null;
 
-    const { error: insertError } = await supabase.from("listings").insert({
-      id: listingId,
-      user_id: userId,
+    const listingData = {
       category_id: selectedCategory.id,
       title,
       description,
@@ -81,14 +94,35 @@ export default function ListingForm() {
       attributes,
       location: location || null,
       images,
-      status: "active",
-    });
+    };
 
-    if (insertError) {
-      setError(insertError.message);
-      setLoading(false);
+    if (isEditing) {
+      const { error: updateError } = await supabase
+        .from("listings")
+        .update(listingData)
+        .eq("id", listingId);
+
+      if (updateError) {
+        setError(updateError.message);
+        setLoading(false);
+      } else {
+        router.push(`/annonser/${listingId}`);
+        router.refresh();
+      }
     } else {
-      router.push(`/annonser/${listingId}`);
+      const { error: insertError } = await supabase.from("listings").insert({
+        id: listingId,
+        user_id: userId,
+        ...listingData,
+        status: "active",
+      });
+
+      if (insertError) {
+        setError(insertError.message);
+        setLoading(false);
+      } else {
+        router.push(`/annonser/${listingId}`);
+      }
     }
   }
 
@@ -328,7 +362,7 @@ export default function ListingForm() {
         className="w-full py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
       >
         {loading && <Loader2 className="h-5 w-5 animate-spin" />}
-        Publiser annonse
+        {isEditing ? "Lagre endringer" : "Publiser annonse"}
       </button>
     </form>
   );
