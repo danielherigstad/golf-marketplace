@@ -113,7 +113,7 @@ export default function MyListingsList({ listings }: MyListingsListProps) {
             </button>
 
             {openMenu === listing.id && (
-              <div className="absolute right-0 top-10 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+              <div className="absolute right-0 sm:right-0 top-10 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10 -translate-x-0 sm:translate-x-0 max-w-[calc(100vw-2rem)]">
                 <Link
                   href={`/annonser/${listing.id}`}
                   className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"

@@ -107,7 +107,7 @@ export default function ChatWindow({
                     : "bg-gray-100 text-gray-900 rounded-bl-md"
                 }`}
               >
-                <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                <p className="text-sm whitespace-pre-wrap break-words">{msg.content}</p>
                 <p
                   className={`text-xs mt-1 ${
                     isOwn ? "text-green-200" : "text-gray-400"

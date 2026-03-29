@@ -52,7 +52,7 @@ export default async function ChatPage({
       : conversation.buyer;
 
   return (
-    <div className="max-w-2xl mx-auto px-4 sm:px-6 py-4 flex flex-col h-[calc(100vh-8rem)]">
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 py-4 flex flex-col h-[calc(100vh-8rem)] md:h-[calc(100vh-5rem)]">
       {/* Header */}
       <div className="flex items-center gap-3 pb-4 border-b border-gray-200">
         <div>

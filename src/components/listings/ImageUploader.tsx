@@ -66,7 +66,7 @@ export default function ImageUploader({
 
   return (
     <div>
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
         {images.map((url, index) => (
           <div key={url} className="relative aspect-square rounded-lg overflow-hidden bg-gray-100">
             <img

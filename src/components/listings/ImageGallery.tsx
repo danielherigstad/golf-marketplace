@@ -37,7 +37,7 @@ export default function ImageGallery({ images, title }: ImageGalleryProps) {
                   prev === 0 ? images.length - 1 : prev - 1
                 )
               }
-              className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 rounded-full shadow hover:bg-white"
+              className="absolute left-2 top-1/2 -translate-y-1/2 p-3 bg-white/80 rounded-full shadow hover:bg-white"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -47,7 +47,7 @@ export default function ImageGallery({ images, title }: ImageGalleryProps) {
                   prev === images.length - 1 ? 0 : prev + 1
                 )
               }
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-white/80 rounded-full shadow hover:bg-white"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-3 bg-white/80 rounded-full shadow hover:bg-white"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
