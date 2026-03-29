@@ -32,7 +32,7 @@ export default async function PublicProfilePage({
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("*")
+    .select("id, display_name, avatar_url, location, bio, created_at")
     .eq("id", id)
     .single();
 

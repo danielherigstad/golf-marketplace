@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ImageGalleryProps {
@@ -23,10 +24,13 @@ export default function ImageGallery({ images, title }: ImageGalleryProps) {
     <div>
       {/* Main image */}
       <div className="relative aspect-square rounded-xl overflow-hidden bg-gray-100">
-        <img
+        <Image
           src={images[currentIndex]}
           alt={`${title} - bilde ${currentIndex + 1}`}
-          className="w-full h-full object-contain"
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-contain"
+          priority={currentIndex === 0}
         />
 
         {images.length > 1 && (
@@ -38,6 +42,7 @@ export default function ImageGallery({ images, title }: ImageGalleryProps) {
                 )
               }
               className="absolute left-2 top-1/2 -translate-y-1/2 p-3 bg-white/80 rounded-full shadow hover:bg-white"
+              aria-label="Forrige bilde"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -48,6 +53,7 @@ export default function ImageGallery({ images, title }: ImageGalleryProps) {
                 )
               }
               className="absolute right-2 top-1/2 -translate-y-1/2 p-3 bg-white/80 rounded-full shadow hover:bg-white"
+              aria-label="Neste bilde"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -65,16 +71,18 @@ export default function ImageGallery({ images, title }: ImageGalleryProps) {
             <button
               key={url}
               onClick={() => setCurrentIndex(index)}
-              className={`w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden border-2 ${
+              className={`w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden border-2 relative ${
                 index === currentIndex
                   ? "border-green-500"
                   : "border-transparent"
               }`}
             >
-              <img
+              <Image
                 src={url}
                 alt={`Miniatyrbilde ${index + 1}`}
-                className="w-full h-full object-cover"
+                fill
+                sizes="64px"
+                className="object-cover"
               />
             </button>
           ))}

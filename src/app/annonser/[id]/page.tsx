@@ -6,6 +6,7 @@ import Link from "next/link";
 import ContactSellerButton from "@/components/listings/ContactSellerButton";
 import FavoriteButton from "@/components/listings/FavoriteButton";
 import ImageGallery from "@/components/listings/ImageGallery";
+import BackButton from "@/components/ui/BackButton";
 import type { Listing, Category } from "@/lib/types";
 
 export async function generateMetadata({
@@ -57,6 +58,7 @@ export default async function ListingDetailPage({
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+      <BackButton />
       <div className="grid md:grid-cols-2 gap-8">
         {/* Images */}
         <div>

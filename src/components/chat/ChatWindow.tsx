@@ -135,6 +135,7 @@ export default function ChatWindow({
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
           placeholder="Skriv en melding..."
+          maxLength={2000}
           className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
         />
         <button

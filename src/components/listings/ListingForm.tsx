@@ -336,6 +336,7 @@ export default function ListingForm({ existingListing }: ListingFormProps) {
           placeholder="Beskriv utstyret ditt. Jo mer detaljer, jo bedre!"
           required
           rows={5}
+          maxLength={5000}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none resize-y"
         />
       </div>
