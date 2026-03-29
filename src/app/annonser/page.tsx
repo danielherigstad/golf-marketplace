@@ -1,0 +1,94 @@
+import { createClient } from "@/lib/supabase/server";
+import ListingGrid from "@/components/listings/ListingGrid";
+import FilterPanel from "@/components/filters/FilterPanel";
+import type { Listing } from "@/lib/types";
+
+export const metadata = {
+  title: "Alle annonser",
+};
+
+export default async function ListingsPage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const params = await searchParams;
+  const supabase = await createClient();
+
+  let query = supabase
+    .from("listings")
+    .select("*, profiles!listings_user_id_fkey(*), categories(*)")
+    .eq("status", "active")
+    .order("created_at", { ascending: false })
+    .limit(48);
+
+  // Apply filters from search params
+  if (params.kategori) {
+    const { data: cat } = await supabase
+      .from("categories")
+      .select("id")
+      .eq("slug", params.kategori as string)
+      .single();
+    if (cat) query = query.eq("category_id", cat.id);
+  }
+
+  if (params.merke) {
+    query = query.eq("brand", params.merke as string);
+  }
+
+  if (params.tilstand) {
+    query = query.eq("condition", params.tilstand as string);
+  }
+
+  if (params.hand) {
+    query = query.eq("hand", params.hand as string);
+  }
+
+  if (params.pris_min) {
+    query = query.gte("price", Number(params.pris_min));
+  }
+
+  if (params.pris_max) {
+    query = query.lte("price", Number(params.pris_max));
+  }
+
+  if (params.sok) {
+    query = query.textSearch("fts", params.sok as string, {
+      type: "websearch",
+      config: "norwegian",
+    });
+  }
+
+  const { data: listings } = await query;
+
+  // Load categories for filter panel
+  const { data: categories } = await supabase
+    .from("categories")
+    .select("*")
+    .order("sort_order");
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+      <h1 className="text-2xl font-bold text-gray-900 mb-6">
+        {params.sok
+          ? `Resultater for "${params.sok}"`
+          : "Alle annonser"}
+      </h1>
+
+      <div className="flex flex-col md:flex-row gap-6">
+        {/* Filter sidebar */}
+        <aside className="w-full md:w-64 flex-shrink-0">
+          <FilterPanel
+            categories={categories || []}
+            currentFilters={params as Record<string, string>}
+          />
+        </aside>
+
+        {/* Listing grid */}
+        <div className="flex-1">
+          <ListingGrid listings={(listings as Listing[]) || []} />
+        </div>
+      </div>
+    </div>
+  );
+}
